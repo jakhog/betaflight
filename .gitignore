@@ -40,3 +40,5 @@ stm32.mak
 
 .vagrant
 ubuntu*.log
+
+/.vs

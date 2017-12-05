@@ -108,6 +108,10 @@ void targetConfiguration(void)
         compassConfigMutable()->interruptTag = IO_TAG(PB12);
     }
 #endif
+
+	//SINTEF - Jakob
+	//Set default to brushed PWM rate so that we don't get troubles after flashing
+	motorConfigMutable()->dev.motorPwmRate = 32000; 
 }
 
 void targetValidateConfiguration(void)

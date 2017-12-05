@@ -31,6 +31,8 @@
 
 #define BEEPER                  PA12
 
+#define COLLISIONDETECT
+
 #if defined(AFROMINI)
 #define BEEPER_INVERTED
 #define TARGET_BOARD_IDENTIFIER "AFMN"

@@ -25,6 +25,8 @@
 
 #include "build/debug.h"
 
+#include "collision/detect.h"
+
 #include "common/axis.h"
 #include "common/color.h"
 #include "common/utils.h"
@@ -453,6 +455,15 @@ cfTask_t cfTasks[TASK_COUNT] = {
         .staticPriority = TASK_PRIORITY_MEDIUM,
     },
 #ifndef USE_OSD_SLAVE
+
+#ifdef COLLISIONDETECT
+	[TASK_COLLISION_DETECTION] = {
+        .taskName = "COLLISION_DETECTION",
+        .taskFunc = taskDetectCollisions,
+        .desiredPeriod = TASK_PERIOD_HZ(100),
+        .staticPriority = TASK_PRIORITY_MEDIUM,
+    },
+#endif
 
 #ifdef BEEPER
     [TASK_BEEPER] = {

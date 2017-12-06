@@ -1,17 +1,21 @@
 #include "collision/detect.h"
 
+#include "common/axis.h"
 #include "common/utils.h"
+
 #include "drivers/light_led.h"
+
+#include "sensors/acceleration.h"
 
 void taskDetectCollisions(timeUs_t currentTimeUs)
 {
     UNUSED(currentTimeUs);
 
-	int a = 0;
+	int32_t accX = acc.accSmooth[X]/acc.dev.acc_1G;
 
-	LED1_ON;
-	for (int i = 0; i < 1000; i++) {
-		a++;
+	if (accX > 1) {
+		LED1_ON;
+	} else {
+		LED1_OFF;
 	}
-	LED1_OFF;
 }

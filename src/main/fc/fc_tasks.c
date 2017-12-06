@@ -293,6 +293,10 @@ void fcTasksInit(void)
     bool useBatteryAlerts = batteryConfig()->useVBatAlerts || batteryConfig()->useConsumptionAlerts || feature(FEATURE_OSD);
     setTaskEnabled(TASK_BATTERY_ALERTS, (useBatteryVoltage || useBatteryCurrent) && useBatteryAlerts);
 
+#ifdef COLLISIONDETECT
+    setTaskEnabled(TASK_COLLISION_DETECTION, true);
+#endif
+
     setTaskEnabled(TASK_RX, true);
 
     setTaskEnabled(TASK_DISPATCH, dispatchIsEnabled());
